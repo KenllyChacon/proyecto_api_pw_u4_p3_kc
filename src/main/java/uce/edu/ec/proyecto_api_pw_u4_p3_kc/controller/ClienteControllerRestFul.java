@@ -35,8 +35,8 @@ public class ClienteControllerRestFul {
         this.iClienteService.borrarCliente(id);
     }
 
-    @GetMapping(path = "/cedula", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Cliente buscarClientePorCedula(@RequestParam String cedula) {
+    @GetMapping(path = "/{cedula}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente buscarClientePorCedula(@PathVariable String cedula) {
         return this.iClienteService.buscarClientePorCedula(cedula);
     }
 

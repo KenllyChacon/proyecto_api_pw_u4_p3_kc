@@ -41,7 +41,7 @@ public class ClienteRepositoryImpl implements IClienteRepository{
     @Override
     public Cliente buscarClientePorCedula(String cedula) {
         //Buscar uno en especifico
-        TypedQuery<Cliente> miTypeQuery = this.entityManager.createQuery("select g from Cliente g where g.cedula =: cedula",Cliente.class);
+        TypedQuery<Cliente> miTypeQuery = this.entityManager.createQuery("select g from Cliente g where g.cedula =:cedula",Cliente.class);
         miTypeQuery.setParameter("cedula", cedula);
         return miTypeQuery.getSingleResult();
     }
@@ -56,7 +56,7 @@ public class ClienteRepositoryImpl implements IClienteRepository{
 
     @Override
     public void borrarClientePorCedula(String cedula) {
-        TypedQuery<Cliente> miTypeQuery = this.entityManager.createQuery("select g from Cliente g where g.cedula =: cedula",Cliente.class);
+        TypedQuery<Cliente> miTypeQuery = this.entityManager.createQuery("select g from Cliente g where g.cedula =:cedula",Cliente.class);
         miTypeQuery.setParameter("cedula", cedula);
         this.entityManager.remove(miTypeQuery.getSingleResult());
     }
